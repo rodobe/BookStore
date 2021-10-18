@@ -3,8 +3,8 @@ package com.example.bookstore.home
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bookstore.data.api.Event
-import com.example.bookstore.data.api.Result
+import com.example.bookstore.networkUtils.Event
+import com.example.bookstore.networkUtils.Result
 import com.example.bookstore.data.repository.BooksRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -25,6 +25,7 @@ class HomeViewModel @Inject constructor(private val booksRepository: BooksReposi
         viewModelScope.launch {
             booksRepository.getBooks()
                 .flowOn(Dispatchers.IO)
+                .onStart { _bookState.value = Event(BookState.OnLoading(isVisible = true)) }
                 .map {
                     when (it) {
                         is Result.Error<*> -> {

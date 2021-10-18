@@ -1,4 +1,4 @@
-package com.example.bookstore.data.api
+package com.example.bookstore.networkUtils
 
 import androidx.lifecycle.MutableLiveData
 import java.lang.Exception
