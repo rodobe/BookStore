@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.bookstore.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment: Fragment() {
+class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModels()
     private lateinit var binding: FragmentHomeBinding
@@ -30,9 +33,33 @@ class HomeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setObserver()
+        viewModel.getBooks()
     }
 
-    companion object{
+    private fun setObserver() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.bookState.collect { bookState ->
+                when (val state = bookState.consume()) {
+                    is BookState.OnError -> {
+
+                    }
+                    is BookState.OnLoading -> {
+                        if (state.isVisible) binding.progressIndicator.show()
+                        else binding.progressIndicator.hide()
+                    }
+                    is BookState.Success -> {
+
+                    }
+                    null -> {
+
+                    }
+                }
+            }
+        }
+    }
+
+    companion object {
 
         fun newInstance() = HomeFragment()
     }
