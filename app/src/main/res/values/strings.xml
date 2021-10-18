@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BookStore</string>
+    <string name="books_url">https://raw.githubusercontent.com/ejgteja/files/main/</string>
 </resources>
