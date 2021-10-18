@@ -51,7 +51,10 @@ class HomeFragment : Fragment() {
                         if (state.isVisible) binding.progressIndicator.show()
                         else binding.progressIndicator.hide()
                     }
-                    is BookState.Success -> {
+                    is BookState.SuccessBooks -> {
+
+                    }
+                    is BookState.SuccessBestSellers -> {
 
                     }
                     null -> {

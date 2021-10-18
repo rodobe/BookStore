@@ -33,7 +33,7 @@ class HomeViewModel @Inject constructor(private val booksRepository: BooksReposi
                             Event(BookState.OnLoading(isVisible = false))
                         }
                         is Result.Success -> {
-                            Event(BookState.Success)
+                            Event(BookState.SuccessBooks)
                             Event(BookState.OnLoading(isVisible = false))
                         }
                     }
@@ -52,6 +52,7 @@ class HomeViewModel @Inject constructor(private val booksRepository: BooksReposi
 
 sealed class BookState {
     data class OnLoading(val isVisible: Boolean) : BookState()
-    object Success : BookState()
+    object SuccessBooks : BookState()
+    object SuccessBestSellers: BookState()
     object OnError : BookState()
 }
