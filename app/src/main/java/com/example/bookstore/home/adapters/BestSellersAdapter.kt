@@ -18,7 +18,7 @@ class BestSellersAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return .size
+        return 0
     }
 
     class OnSubscribedTvShowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
