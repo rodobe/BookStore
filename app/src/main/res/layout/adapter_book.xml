@@ -19,7 +19,8 @@
             android:minHeight="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bookTitle"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_image_not_supported"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/bookTitle"
