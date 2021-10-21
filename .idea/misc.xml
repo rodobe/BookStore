@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_image_not_supported.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.16599394550958627" />
         <entry key="app/src/main/res/layout/adapter_best_sellers.xml" value="0.1743188698284561" />
-        <entry key="app/src/main/res/layout/adapter_horizontal_section.xml" value="0.1743188698284561" />
+        <entry key="app/src/main/res/layout/adapter_book.xml" value="0.1743188698284561" />
+        <entry key="app/src/main/res/layout/adapter_horizontal_section.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
       </map>
     </option>
